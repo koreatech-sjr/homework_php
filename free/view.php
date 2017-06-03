@@ -4,7 +4,7 @@
 
 	$sql = "select * from $table where num=$num";
 	$result = mysql_query($sql, $connect);
-    $row = mysql_fetch_array($result);
+  $row = mysql_fetch_array($result);
 
 	$item_num     = $row[num];
 	$item_id      = $row[id];
