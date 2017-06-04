@@ -52,7 +52,7 @@
 						<!-- Photo Galleries -->
 							<div class="inner">
 								<header class="special">
-									<h2>What's New</h2>
+									<h2>한줄 게시판</h2>
 								</header>
                 <div id="disqus_thread"></div>
                 <script>
