@@ -83,7 +83,7 @@
 												<div id="write_row2">
 													<div class="col1">
 														<h5>제목</h5> </div>
-													<div class="col2"><input type="text" name="subject" value="<?=$item_subject?>"></div>
+													<div class="col2"><input type="text" name="subject" placeholder="아이폰5s 미개봉 팔아요"value="<?=$item_subject?>"></div>
 												</div>
 												<div class="write_line"></div>
 												<div class="clear"><br></div>
@@ -92,7 +92,7 @@
 														<div id="write_row3">
 															<div class="col1">
 																<h5>내용</h5> </div>
-															<div class="col2"><textarea rows="7" cols="79" name="content"><?=$item_content?></textarea></div>
+															<div class="col2"><textarea rows="7" cols="79" name="content" placeholder="상품명 :  &#13;&#10상품설명 :  &#13;&#10희망가격 :  &#13;&#10연락처 : "><?=$item_content?></textarea></div>
 														</div>
 													</div>
 													<center>
