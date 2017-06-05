@@ -34,16 +34,6 @@
 <meta charset="utf-8">
 
 <link rel="stylesheet" href="../assets/css/main.css" />
-<style media="screen">
-	#nav {
-		width: 4em;
-	}
- .centered { position: absolute; left: 50%; transform: translateX(-50%);
- }
- p {
- 	font-size: medium;
- }
-</style>
 </head>
 
 <?
