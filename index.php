@@ -5,8 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
 <link rel="stylesheet" href="assets/css/main.css" />
+<style media="screen">
+	p {
+		font-size: medium;
+	}
+	</style>
 </head>
 
 <body>
@@ -18,31 +22,31 @@
 			if(!$userid)
 				{
 					?>
-						<ul>
-							<li><a href="../index.php" class="active"><!--홈--><span class="icon fa-home"></span></a></li>
-							<li><a href="./login/login_form.php"><!--로그인--><span class="icon fa-user"></span></a></li>
-							<li><a href="./member/member_form.php"><!--회원가입--><span class="icon fa-user-plus"></span></a></li>
-							<li><a href="./memo/memo.php"><span class="icon fa-home"></span></a></li>
-							<li><a href="./free/list.php"><span class="icon fa-dollar"></span></a></li>
-							<li><a href="./concert/list.php"><span class="icon fa-home"></span></a></li>
-							<li><a href="./download/list.php"><span class="icon fa-home"></span></a></li>
-							<li><a href="./greet/list.php"><span class="icon fa-home"></span></a></li>
-							<li><a href="./qna/list.php"><span class="icon fa-home"></span></a></li>
+					<ul style="font-size: medium;">
+						<li><a href="./index.php" class="active"><!--홈--><p>HOME</p></a></li>
+						<li><a href="./login/login_form.php"><!--로그인--><p>Login</p></a></li>
+						<li><a href="./member/member_form.php"><!--회원가입--><p>Join</p></a></li>
+						<li><a href="./memo/memo.php"><p>1-Line</p></a></li>
+						<li><a href="./free/list.php"><p>SALE</p></a></li>
+						<li><a href="./concert/list.php"><span class="icon fa-home"></span></a></li>
+						<li><a href="./download/list.php"><span class="icon fa-home"></span></a></li>
+						<li><a href="./greet/list.php"><span class="icon fa-home"></span></a></li>
+						<li><a href="./qna/list.php"><span class="icon fa-home"></span></a></li>
 				<?
 				}
 				else
 				{
 				?>
-				<ul>
-				<li><a href="../index.php" class="active"><!--홈--><span class="icon fa-home"></span></a></li>
-				<li><a href="./login/logout.php"><!--로그아웃--><span class="icon fa-unlock-alt"></span></a></li>
-				<li><a href="./login/member_form_modify.php"><!--정보수정--><span class="icon fa-user-secret"></span></a></li>
-				<li><a href="./memo/memo.php"><span class="icon fa-home"></span></a></li>
-				<li><a href="./free/list.php"><span class="icon fa-dollar"></span></a></li>
-				<li><a href="./concert/list.php"><span class="icon fa-home"></span></a></li>
-				<li><a href="./download/list.php"><span class="icon fa-home"></span></a></li>
-				<li><a href="./greet/list.php"><span class="icon fa-home"></span></a></li>
-				<li><a href="./qna/list.php"><span class="icon fa-home"></span></a></li>
+				<ul style="font-size: medium;">
+					<li><a href="./index.php" class="active"><p>HOME</p></a></li>
+					<li><a href="./login/logout.php"><p>LogOut</p></span></a></li>
+					<li><a href="./login/member_form_modify.php"> <p>My</p></a></li>
+					<li><a href="./memo/memo.php"> <p>1-Line</p> </span></a></li>
+					<li><a href="./free/list.php"><p>SALE</p></a></li>
+					<li><a href="./concert/list.php"><span class="icon fa-home"></span></a></li>
+					<li><a href="./download/list.php"><span class="icon fa-home"></span></a></li>
+					<li><a href="./greet/list.php"><span class="icon fa-home"></span></a></li>
+					<li><a href="./qna/list.php"><span class="icon fa-home"></span></a></li>
 				<?
 				}
 				?>
@@ -111,7 +115,7 @@
 									</div>
 								</div>
 								<footer>
-									<a href="gallery.html" class="button big">전체보기</a>
+									<a href="./free/list.php" class="button big">전체보기</a>
 								</footer>
 							</div>
 					</section>
