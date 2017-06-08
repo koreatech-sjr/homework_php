@@ -174,7 +174,7 @@
 
 																					<div class="clear"></div>
 														</div>
-														<br><br>
+
 														<center>
 														<div id="write_button"><a href="#"><img src="../img/ok.png" onclick="check_input()"></a>&nbsp;
 															<a href="list.php?table=<?=$table?>&page=<?=$page?>"><img src="../img/list.png"></a>

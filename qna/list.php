@@ -6,8 +6,24 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link href="../css/common.css" rel="stylesheet" type="text/css" media="all">
-<link href="../css/board1.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="../assets/css/main.css" />
+<style media="screen">
+		select {
+			 width: 100px; /* 원하는 너비설정 */
+			 padding: .4em .2em; /* 여백으로 높이 설정 */
+			 font-family: inherit; /* 폰트 상속 */
+			 background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%; /* 네이티브 화살표 대체 */ border: 1px solid #999; border-radius: 0px; /* iOS 둥근모서리 제거 */
+			 -webkit-appearance: none; /* 네이티브 외형 감추기 */
+			 -moz-appearance: none;
+			 appearance: none;
+		 }
+</style>
+<style type="text/css">
+a:link {text-decoration: none; color: #333333;}
+a:visited {text-decoration: none; color: #333333;}
+a:active {text-decoration: none; color: #333333;}
+a:hover {text-decoration: underline; color: red;}
+</style>
 </head>
 <?
 	include "../lib/dbconn.php";
@@ -50,123 +66,179 @@
 	$number = $total_record - $start;
 ?>
 <body>
-<div id="wrap">
-  <div id="header">
-    <? include "../lib/top_login2.php"; ?>
-  </div>  <!-- end of header -->
-  <div id="menu">
-	<? include "../lib/top_menu2.php"; ?>
-  </div>  <!-- end of menu -->
+<div class="page-wrap">
+	<!-- nav -->
+	<nav id="nav">
+		<? include "../lib/top_login1.php"; ?>
+	</nav>
+	<section id="main">
+		<header id="header">
+			<div>Snapshot <span>by TEMPLATED</span></div>
+		</header>
+		<section>
+			<div class="inner">
+				<div id="content">
 
-  <div id="content">
-	<div id="col1">
-		<div id="left_menu">
-<?
-			include "../lib/left_menu.php";
+					<div id="col2">
+
+
+
+						<div id="title" style="width: 100%;">
+							<div style="float: left; width: 15%;">
+								<h3>QNA</h3>
+							</div>
+						</div>
+
+							<div id="list_search1" style="float: left; width:70%;">총
+								<?= $total_record ?> 개의 게시물이 있습니다. </div>
+
+
+
+						<div class="clear"></div>
+
+						<div id="list_top_title">
+							<table border="" style="width: 100%;">
+								<tbody>
+									<tr style="width: 100%;">
+										<td style="width: 10%;">번호</td>
+										<td style="width: 45%;">제목</td>
+										<td style="width: 15%;">글쓴이</td>
+										<td style="width: 20%;">등록일</td>
+										<td style="width: 10%;">조회</td>
+									</tr>
+
+
+						</div>
+
+						<div id="list_content">
+							<?
+for ($i=$start; $i<$start+$scale && $i < $total_record; $i++)
+{
+mysql_data_seek($result, $i);
+// 가져올 레코드로 위치(포인터) 이동
+$row = mysql_fetch_array($result);
+// 하나의 레코드 가져오기
+
+$item_num     = $row[num];
+$item_id      = $row[id];
+$item_name    = $row[name];
+$item_nick    = $row[nick];
+$item_hit     = $row[hit];
+$item_date    = $row[regist_day];
+$item_date = substr($item_date, 0, 10);
+$item_subject = str_replace(" ", "&nbsp;", $row[subject]);
 ?>
-		</div>
-	</div>
 
-	<div id="col2">
-		<div id="title">
-			<img src="../img/title_qna.gif">
-		</div>
-		<form  name="board_form" method="post" action="list.php?table=<?=$table?>&mode=search">
-		<div id="list_search">
-			<div id="list_search1">▷ 총 <?= $total_record ?> 개의 게시물이 있습니다.  </div>
-			<div id="list_search2"><img src="../img/select_search.gif"></div>
-			<div id="list_search3">
-				<select name="find">
-                    <option value='subject'>제목</option>
-                    <option value='content'>내용</option>
-                    <option value='nick'>별명</option>
-                    <option value='name'>이름</option>
-				</select></div>
-			<div id="list_search4"><input type="text" name="search"></div>
-			<div id="list_search5"><input type="image" src="../img/list_search_button.gif"></div>
-		</div>
-		</form>
-		<div class="clear"></div>
-
-		<div id="list_top_title">
-			<ul>
-				<li id="list_title1"><img src="../img/list_title1.gif"></li>
-				<li id="list_title2"><img src="../img/list_title2.gif"></li>
-				<li id="list_title3"><img src="../img/list_title3.gif"></li>
-				<li id="list_title4"><img src="../img/list_title4.gif"></li>
-				<li id="list_title5"><img src="../img/list_title5.gif"></li>
-			</ul>
-		</div>
-
-		<div id="list_content">
-<?
-   for ($i=$start; $i<$start+$scale && $i < $total_record; $i++)
-   {
-      mysql_data_seek($result, $i);
-      $row = mysql_fetch_array($result);
-
-	  $item_num     = $row[num];
-	  $item_id      = $row[id];
-	  $item_name    = $row[name];
-  	  $item_nick    = $row[nick];
-	  $item_hit     = $row[hit];
-      $item_date    = $row[regist_day];
-	  $item_date = substr($item_date, 0, 10);
-	  $item_subject = str_replace(" ", "&nbsp;", $row[subject]);
-	  $item_depth = $row[depth];
-
-      $space = "";
-      for ($j=0; $j<$item_depth; $j++)
-          $space = "&nbsp;&nbsp;".$space;
-
+								<tr style="width: 100%;">
+									<td>
+										<?= $number ?>
+									</td>
+									<td>
+										<a href="view.php?table=<?=$table?>&num=<?=$item_num?>&page=<?=$page?>">
+											<?= $item_subject ?>
+										</a>
+									</td>
+									<td>
+										<?= $item_nick ?>
+									</td>
+									<td>
+										<?= $item_date ?>
+									</td>
+									<td>
+										<?= $item_hit ?>
+									</td>
+									<?
+ $number--;
+}
 ?>
-			<div id="list_item">
-				<div id="list_item1"><?= $number ?></div>
-				<div id="list_item2"><?=$space?><a href="view.php?table=<?=$table?>&num=<?=$item_num?>&page=<?=$page?>"><?= $item_subject ?></a></div>
-				<div id="list_item3"><?= $item_nick ?></div>
-				<div id="list_item4"><?= $item_date ?></div>
-				<div id="list_item5"><?= $item_hit ?></div>
-			</div>
-<?
-   	   $number--;
-   }
-?>
-			<div id="page_button">
-				<div id="page_num"> ◀ 이전 &nbsp;&nbsp;&nbsp;&nbsp;
-<?
-   // 게시판 목록 하단에 페이지 링크 번호 출력
-   for ($i=1; $i<=$total_page; $i++)
-   {
-		if ($page == $i)     // 현재 페이지 번호 링크 안함
-		{
-			echo "<b> $i </b>";
-		}
-		else
-		{
-			echo "<a href='list.php?table=$table&page=$i'> $i </a>";
-		}
-   }
-?>
-			&nbsp;&nbsp;&nbsp;&nbsp;다음 ▶
-				</div>
-				<div id="button">
-					<a href="list.php?table=<?=$table?>&page=<?=$page?>"><img src="../img/list.png"></a>&nbsp;
-<?
-	if($userid)
+
+
+
+								</tr>
+								</tbody>
+								</table>
+								<center>
+									<div id="page_button">
+										<div id="page_num"> ◀ 이전 &nbsp;&nbsp;&nbsp;&nbsp;
+											<?
+ // 게시판 목록 하단에 페이지 링크 번호 출력
+ for ($i=1; $i<=$total_page; $i++)
+ {
+	if ($page == $i)     // 현재 페이지 번호 링크 안함
 	{
-?>
-		<a href="write_form.php?table=<?=$table?>"><img src="../img/write.png"></a>
-<?
+		echo "<b> $i </b>";
 	}
+	else
+	{
+		echo "<a href='list.php?table=$table&page=$i'> $i </a>";
+	}
+ }
 ?>
-				</div>
-			</div> <!-- end of page_button -->
-        </div> <!-- end of list content -->
-		<div class="clear"></div>
+												&nbsp;&nbsp;&nbsp;&nbsp;다음 ▶
+												<br><br>
+										</div>
+										<div id="button">
+											<a href="list.php?table=<?=$table?>&page=<?=$page?>"><input type="button" name="목록" value="글목록"></a>
+											&nbsp;
+											<?
+if($userid)
+{
+?>
+												<a href="write_form.php?table=<?=$table?>"><input type="button" name="글쓰기" value="글쓰기"></a>
 
-	</div> <!-- end of col2 -->
-  </div> <!-- end of content -->
+												<?
+}
+?>
+										</div>
+									</div>
+									<br>
+									<!-- end of page_button -->
+									<form  name="board_form" method="post" action="list.php?table=<?=$table?>&mode=search">
+									<div id="list_search" style="width: 100%;">
+
+
+										<div id="list_search3" style="float: left; width: 13%;">
+											<select name="find">
+																	<option value='subject'>제목</option>
+																	<option value='content'>내용</option>
+																	<option value='nick'>별명</option>
+																	<option value='name'>이름</option>
+											</select></div>
+										<div id="list_search4" style="float: left; width: 60%;"><input type="text" name="search"></div>
+										<div id="list_search5" style="float: left; width: 10%;"><input type="image" src="../img/list_search_button.gif"></div>
+									</div>
+									</form>
+								</center>
+
+
+						</div>
+						<!-- end of list content -->
+
+						<div class="clear"></div>
+
+					</div>
+					<!-- end of col2 -->
+
+				</div>
+			</div>
+		</section>
+	</section>
+
 </div> <!-- end of wrap -->
 
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/588aff2e63b0fb7e39a73d2b/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>

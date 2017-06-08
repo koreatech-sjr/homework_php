@@ -29,7 +29,7 @@
 						<li><a href="./memo/memo.php"><p>1-Line</p></a></li>
 						<li><a href="./free/list.php"><p>SALE</p></a></li>
 						<li><a href="./concert/list.php"><p>BOARD</p></a></li>
-						<li><a href="./download/list.php"><span class="icon fa-home"></span></a></li>
+						<li><a href="./download/list.php"><p>FILE</p></span></a></li>
 						<li><a href="./greet/list.php"><span class="icon fa-home"></span></a></li>
 						<li><a href="./qna/list.php"><span class="icon fa-home"></span></a></li>
 				<?
@@ -44,7 +44,7 @@
 					<li><a href="./memo/memo.php"> <p>1-Line</p> </span></a></li>
 					<li><a href="./free/list.php"><p>SALE</p></a></li>
 					<li><a href="./concert/list.php"><p>BOARD</p></a></li>
-					<li><a href="./download/list.php"><span class="icon fa-home"></span></a></li>
+					<li><a href="./download/list.php"><p>FILE</p></a></li>
 					<li><a href="./greet/list.php"><span class="icon fa-home"></span></a></li>
 					<li><a href="./qna/list.php"><span class="icon fa-home"></span></a></li>
 				<?
@@ -167,7 +167,6 @@
 					</footer>
 			</section>
 	</div>
-
 	<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.poptrox.min.js"></script>
