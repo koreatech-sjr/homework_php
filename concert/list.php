@@ -228,14 +228,16 @@
 							</div>
 						</div>
 							<!-- end of col2 -->
+							<footer id="footer">
+								<div class="copyright">
+									&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
+								</div>
+							</footer>
 						</div>
 						<!-- end of content -->
+
 					</section>
-					<footer id="footer">
-						<div class="copyright">
-							&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
-						</div>
-					</footer>
+
 				</section>
 			</div>
 			<!-- end of wrap -->

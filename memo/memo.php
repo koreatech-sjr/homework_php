@@ -28,21 +28,19 @@
 							if(!$userid)
 								{
 									?>
-                  <h1>Recommendation</h1>
+                  <h1>Recommendation!!</h1>
 							    <p>저희 홈페이지에 대해 건의사항을 남겨주세요!</p>
 							<?
 							}
 							else
 							{
 							?>
-                <h1>Recommendation</h1>
+                <h1>Recommendation!!</h1>
 								<p><?=$usernick?>(Lev<?=$userlevel?>) 님 저희 홈페이지에 대해 건의사항을 남겨주세요!</p>
 							<?
 							}
 							?>
-							<ul class="actions">
-								<li><a href="#galleries" class="button alt scrolly big">바로보기</a></li>
-							</ul>
+
 						</div>
 					</section>
 

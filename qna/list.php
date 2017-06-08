@@ -222,6 +222,11 @@ if($userid)
 				</div>
 			</div>
 		</section>
+		<footer id="footer">
+			<div class="copyright">
+				&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
+			</div>
+		</footer>	
 	</section>
 
 </div> <!-- end of wrap -->
