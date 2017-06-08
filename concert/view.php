@@ -65,7 +65,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link href="../css/common.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="../assets/css/main.css" />
 <link href="../css/concert.css" rel="stylesheet" type="text/css" media="all">
 <script>
     function del(href)
@@ -78,80 +78,85 @@
 </head>
 
 <body>
-<div id="wrap">
+<div class="page-wrap">
 
-  <div id="header">
-    <? include "../lib/top_login2.php"; ?>
-  </div>  <!-- end of header -->
+	<!-- nav -->
+	<nav id="nav">
+			<? include "../lib/top_login1.php"; ?>
+	</nav>
 
-  <div id="menu">
-	<? include "../lib/top_menu2.php"; ?>
-  </div>  <!-- end of menu -->
+	<section id="main">
+		<!-- Header -->
+			<header id="header">
+				<div>Snapshot <span>by TEMPLATED</span></div>
+			</header>
+			<section>
+				<div class="inner">
+					<div id="content">
+								<div id="col2" style="float: left; width: 100%;">
 
-  <div id="content">
-	<div id="col1">
-		<div id="left_menu">
-<?
-			include "../lib/left_menu.php";
-?>
-		</div>
-	</div>
+						<div id="title">
+								<h3>자유게시판</h3>
+						</div>
 
-	<div id="col2">
+						<div id="view_comment"> &nbsp;</div>
 
-		<div id="title">
-			<img src="../img/title_concert.gif">
-		</div>
+						<div id="view_title">
+							<div id="view_title1"><?= $item_subject ?></div><div id="view_title2"><?= $item_nick ?> | 조회 : <?= $item_hit ?>
+																		| <?= $item_date ?> </div>
+						</div>
 
-		<div id="view_comment"> &nbsp;</div>
+						<div id="view_content">
+				<?
+					for ($i=0; $i<3; $i++)
+					{
+						if ($image_copied[$i])
+						{
+							$img_name = $image_copied[$i];
+							$img_name = "./data/".$img_name;
+							$img_width = $image_width[$i];
 
-		<div id="view_title">
-			<div id="view_title1"><?= $item_subject ?></div><div id="view_title2"><?= $item_nick ?> | 조회 : <?= $item_hit ?>
-			                      | <?= $item_date ?> </div>
-		</div>
+							echo "<img src='$img_name' width='$img_width'>"."<br><br>";
+						}
+					}
+				?>
+							<?= $item_content ?>
+						</div>
 
-		<div id="view_content">
-<?
-	for ($i=0; $i<3; $i++)
-	{
-		if ($image_copied[$i])
-		{
-			$img_name = $image_copied[$i];
-			$img_name = "./data/".$img_name;
-			$img_width = $image_width[$i];
+						<div id="view_button">
+								<a href="list.php?table=<?=$table?>&page=<?=$page?>"><img src="../img/list.png"></a>&nbsp;
+				<?
+					if($userid==$item_id || $userid="admin" || $userlevel==1 )
+					{
+				?>
+								<a href="write_form.php?table=<?=$table?>&mode=modify&num=<?=$num?>&page=<?=$page?>"><img src="../img/modify.png"></a>&nbsp;
+								<a href="javascript:del('delete.php?table=<?=$table?>&num=<?=$num?>')"><img src="../img/delete.png"></a>&nbsp;
+				<?
+					}
+				?>
+				<?
+					if($userid)
+					{
+				?>
+								<a href="write_form.php?table=<?=$table?>"><img src="../img/write.png"></a>
+				<?
+					}
+				?>
+						</div>
 
-			echo "<img src='$img_name' width='$img_width'>"."<br><br>";
-		}
-	}
-?>
-			<?= $item_content ?>
-		</div>
+						<div class="clear"></div>
 
-		<div id="view_button">
-				<a href="list.php?table=<?=$table?>&page=<?=$page?>"><img src="../img/list.png"></a>&nbsp;
-<?
-	if($userid==$item_id || $userid="admin" || $userlevel==1 )
-	{
-?>
-				<a href="write_form.php?table=<?=$table?>&mode=modify&num=<?=$num?>&page=<?=$page?>"><img src="../img/modify.png"></a>&nbsp;
-				<a href="javascript:del('delete.php?table=<?=$table?>&num=<?=$num?>')"><img src="../img/delete.png"></a>&nbsp;
-<?
-	}
-?>
-<?
-	if($userid)
-	{
-?>
-				<a href="write_form.php?table=<?=$table?>"><img src="../img/write.png"></a>
-<?
-	}
-?>
-		</div>
+					</div> <!-- end of col2 -->
+					</div> <!-- end of content -->
+				</div>
+			</section>
+			<footer id="footer">
+				<div class="copyright">
+					&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
+				</div>
+			</footer>
+	</section>
 
-		<div class="clear"></div>
-
-	</div> <!-- end of col2 -->
-  </div> <!-- end of content -->
 </div> <!-- end of wrap -->
 
 </body>
