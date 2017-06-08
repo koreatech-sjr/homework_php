@@ -93,9 +93,11 @@
 										<div style="float: left; width: 15%;">
 											<h3>자유게시판</h3>
 										</div>
+									</div>
+
 										<div id="list_search1" style="float: left; width:70%;">총
 											<?= $total_record ?> 개의 게시물이 있습니다. </div>
-										</div>
+
 
 
 									<div class="clear"></div>
@@ -132,6 +134,7 @@
 	  $item_date = substr($item_date, 0, 10);
 	  $item_subject = str_replace(" ", "&nbsp;", $row[subject]);
 ?>
+
 											<tr style="width: 100%;">
 												<td>
 													<?= $number ?>
@@ -196,27 +199,23 @@
 												</div>
 												<br>
 												<!-- end of page_button -->
-											</center>
-											<center>
-												<div id="list_search" style="float: center; width: 100%;">
+												<form  name="board_form" method="post" action="list.php?table=<?=$table?>&mode=search">
+												<div id="list_search" style="width: 100%;">
+
 
 													<div id="list_search3" style="float: left; width: 13%;">
-														<select placeholder="선택">
-															<option value='subject'>제목</option>
-															<option value='content'>내용</option>
-															<option value='nick'>별명</option>
-															<option value='name'>이름</option>
-														</select>
-													</div>
-													<div id="list_search4" style="float: left; width: 60%;">
-														<input type="text" name="search">
-													</div>
-													<div id="list_search5" style="float: left; width: 10%;">
-														&nbsp&nbsp
-														<input type="button" value="검색">
-
+														<select name="find">
+										                    <option value='subject'>제목</option>
+										                    <option value='content'>내용</option>
+										                    <option value='nick'>별명</option>
+										                    <option value='name'>이름</option>
+														</select></div>
+													<div id="list_search4" style="float: left; width: 60%;"><input type="text" name="search"></div>
+													<div id="list_search5" style="float: left; width: 10%;"><input type="image" src="../img/list_search_button.gif"></div>
 												</div>
+												</form>
 											</center>
+
 
 									</div>
 									<!-- end of list content -->
@@ -225,7 +224,9 @@
 
 								</div>
 								<!-- end of col2 -->
+
 							</div>
+						</div>
 							<!-- end of col2 -->
 						</div>
 						<!-- end of content -->
