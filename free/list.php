@@ -135,7 +135,7 @@
 												   }
 												?>
 															&nbsp;&nbsp;&nbsp;&nbsp;next ▶
-																</div>
+														</div><br>
 																<div id="button">
 																	<a href="list.php?table=<?=$table?>&page=<?=$page?>"><img src="../img/list.png"></a>&nbsp;
 												<?
