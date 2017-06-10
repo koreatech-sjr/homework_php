@@ -43,10 +43,10 @@
 					<li><a href="./login/member_form_modify.php"> <p>My</p></a></li>
 					<li><a href="./memo/memo.php"> <p>1-Line</p> </span></a></li>
 					<li><a href="./free/list.php"><p>SALE</p></a></li>
-					<li><a href="./concert/list.php"><p>BOARD</p></a></li>
+					<li><a href="./concert/list.php"><p>Board</p></a></li>
 					<li><a href="./download/list.php"><p>FILE</p></a></li>
 					<li><a href="./greet/list.php"><span class="icon fa-home"></span></a></li>
-					<li><a href="./qna/list.php"><span class="icon fa-home"></span></a></li>
+					<li><a href="./qna/list.php"><p>QNA</p></a></li>
 				<?
 				}
 				?>
