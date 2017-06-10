@@ -1,9 +1,8 @@
 <?
 	session_start();
-
 	include "../lib/dbconn.php";
 
-	$sql = "select * from greet where num=$num";
+	$sql = "select * from $table where num=$num";
 	$result = mysql_query($sql, $connect);
 
     $row = mysql_fetch_array($result);
@@ -15,8 +14,16 @@
   	$item_nick    = $row[nick];
 	$item_hit     = $row[hit];
 
-    $item_date    = $row[regist_day];
+	$image_name[0]   = $row[file_name_0];
+	$image_name[1]   = $row[file_name_1];
+	$image_name[2]   = $row[file_name_2];
 
+
+	$image_copied[0] = $row[file_copied_0];
+	$image_copied[1] = $row[file_copied_1];
+	$image_copied[2] = $row[file_copied_2];
+
+    $item_date    = $row[regist_day];
 	$item_subject = str_replace(" ", "&nbsp;", $row[subject]);
 
 	$item_content = $row[content];
@@ -28,17 +35,38 @@
 		$item_content = str_replace("\n", "<br>", $item_content);
 	}
 
+	for ($i=0; $i<3; $i++)
+	{
+		if ($image_copied[$i])
+		{
+			$imageinfo = GetImageSize("./data/".$image_copied[$i]);
+
+			$image_width[$i] = $imageinfo[0];
+			$image_height[$i] = $imageinfo[1];
+			$image_type[$i]  = $imageinfo[2];
+
+			if ($image_width[$i] > 785)
+				$image_width[$i] = 785;
+		}
+		else
+		{
+			$image_width[$i] = "";
+			$image_height[$i] = "";
+			$image_type[$i]  = "";
+		}
+	}
+
 	$new_hit = $item_hit + 1;
 
-	$sql = "update greet set hit=$new_hit where num=$num";   // 글 조회수 증가시킴
+	$sql = "update $table set hit=$new_hit where num=$num";   // 글 조회수 증가시킴
 	mysql_query($sql, $connect);
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="utf-8">
-<link href="../css/common.css" rel="stylesheet" type="text/css" media="all">
-<link href="../css/greet.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="../assets/css/main.css" />
+<link href="../css/concert.css" rel="stylesheet" type="text/css" media="all">
 <script>
     function del(href)
     {
@@ -50,66 +78,85 @@
 </head>
 
 <body>
-<div id="wrap">
-  <div id="header">
-    <? include "../lib/top_login2.php"; ?>
-  </div>  <!-- end of header -->
+<div class="page-wrap">
 
-  <div id="menu">
-	<? include "../lib/top_menu2.php"; ?>
-  </div>  <!-- end of menu -->
+	<!-- nav -->
+	<nav id="nav">
+			<? include "../lib/top_login1.php"; ?>
+	</nav>
 
-  <div id="content">
-	<div id="col1">
-		<div id="left_menu">
-<?
-			include "../lib/left_menu.php";
-?>
-		</div>
-	</div>
+	<section id="main">
+		<!-- Header -->
+			<header id="header">
+				<div>Snapshot <span>by TEMPLATED</span></div>
+			</header>
+			<section>
+				<div class="inner">
+					<div id="content">
+								<div id="col2" style="float: left; width: 100%;">
 
-	<div id="col2">
+						<div id="title">
+								<h2>익명게시판</h2>
+						</div>
 
-		<div id="title">
-			<img src="../img/title_greet.gif">
-		</div>
+						<div id="view_comment"> &nbsp;</div>
 
-		<div id="view_comment"> &nbsp;</div>
+						<div id="view_title">
+							<div id="view_title1"><h4>제목 : <?= $item_subject ?></h4></div><div id="view_title2">익명 | 조회 : <?= $item_hit ?>
+																		| <?= $item_date ?> </div>
+						</div>
 
-		<div id="view_title">
-			<div id="view_title1"><?= $item_subject ?></div><div id="view_title2"><?= $item_nick ?> | 조회 : <?= $item_hit ?>
-			                      | <?= $item_date ?> </div>
-		</div>
+						<div id="view_content">
+				<?
+					for ($i=0; $i<3; $i++)
+					{
+						if ($image_copied[$i])
+						{
+							$img_name = $image_copied[$i];
+							$img_name = "./data/".$img_name;
+							$img_width = $image_width[$i];
 
-		<div id="view_content">
-			<?= $item_content ?>
-		</div>
+							echo "<img src='$img_name' width='$img_width'>"."<br><br>";
+						}
+					}
+				?>
+							<?= $item_content ?>
+						</div>
 
-		<div id="view_button">
-				<a href="list.php?page=<?=$page?>"><img src="../img/list.png"></a>&nbsp;
-<?
-	if($userid==$item_id || $userlevel==1 || $userid=="admin")
-	{
-?>
-				<a href="modify_form.php?num=<?=$num?>&page=<?=$page?>"><img src="../img/modify.png"></a>&nbsp;
-				<a href="javascript:del('delete.php?num=<?=$num?>')"><img src="../img/delete.png"></a>&nbsp;
-<?
-	}
-?>
-<?
-	if($userid )
-	{
-?>
-				<a href="write_form.php"><img src="../img/write.png"></a>
-<?
-	}
-?>
-		</div>
+						<div id="view_button">
+								<a href="list.php?table=<?=$table?>&page=<?=$page?>"><img src="../img/list.png"></a>&nbsp;
+				<?
+					if($userid==$item_id || $userid="admin" || $userlevel==1 )
+					{
+				?>
+								<a href="write_form.php?table=<?=$table?>&mode=modify&num=<?=$num?>&page=<?=$page?>"><img src="../img/modify.png"></a>&nbsp;
+								<a href="javascript:del('delete.php?table=<?=$table?>&num=<?=$num?>')"><img src="../img/delete.png"></a>&nbsp;
+				<?
+					}
+				?>
+				<?
+					if($userid)
+					{
+				?>
+								<a href="write_form.php?table=<?=$table?>"><img src="../img/write.png"></a>
+				<?
+					}
+				?>
+						</div>
 
-		<div class="clear"></div>
+						<div class="clear"></div>
 
-	</div> <!-- end of col2 -->
-  </div> <!-- end of content -->
+					</div> <!-- end of col2 -->
+					</div> <!-- end of content -->
+				</div>
+			</section>
+			<footer id="footer">
+				<div class="copyright">
+					&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
+				</div>
+			</footer>
+	</section>
+
 </div> <!-- end of wrap -->
 
 </body>

@@ -1,6 +1,30 @@
 <?
 	session_start();
 ?>
+<?
+    function getInfo() {
+      include "./lib/dbconn.php";
+
+      $sql = "select * from free";
+      $result = mysql_query($sql, $connect);
+
+      $count = 0;
+
+      while($row = mysql_fetch_array($result)) {
+        $obj[$count] = (object)array('id' => $row[id], 'name' => $row[name], 'nick' => $row[nick],
+        'subject' => $row[subject], 'content' => $row[content], 'regist_day' => $row[regist_day],
+        'hit' => $row[hit], 'is_html' => $row[is_html], 'file_name_0' => $row[file_name_0],
+        'file_name_1' => $row[file_name_1], 'file_name_2' => $row[file_name_2], 'file_name_3' => $row[file_name_3], 'file_name_4' => $row[file_name_4],
+        'file_copied_0' => $row[file_copied_0], 'file_copied_1' => $row[file_copied_1], 'file_copied_2' => $row[file_copied_2],
+        'file_copied_3' => $row[file_copied_3], 'file_copied_4' => $row[file_copied_4]);
+        $count++;
+      }
+
+      mysql_close();
+
+      return $obj;
+    }
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,7 +54,7 @@
 						<li><a href="./free/list.php"><p>SALE</p></a></li>
 						<li><a href="./concert/list.php"><p>Board</p></a></li>
 						<li><a href="./download/list.php"><p>FILE</p></span></a></li>
-						<li><a href="./greet/list.php"><span class="icon fa-home"></span></a></li>
+						<li><a href="./greet/list.php"><p>Anony</p></a></li>
 						<li><a href="./qna/list.php"><p>QNA</p></span></a></li>
 				<?
 				}
@@ -45,7 +69,7 @@
 					<li><a href="./free/list.php"><p>SALE</p></a></li>
 					<li><a href="./concert/list.php"><p>Board</p></a></li>
 					<li><a href="./download/list.php"><p>FILE</p></a></li>
-					<li><a href="./greet/list.php"><span class="icon fa-home"></span></a></li>
+					<li><a href="./greet/list.php"><p>Anony</p></a></li>
 					<li><a href="./qna/list.php"><p>QNA</p></a></li>
 				<?
 				}
@@ -82,42 +106,35 @@
 
 				<!-- Gallery -->
 					<section id="galleries">
+						<div class="gallery">
+							<header class="special">
+								<h2>What's NEW?</h2>
+
+							</header>
 
 						<!-- Photo Galleries -->
-							<div class="gallery">
-								<header class="special">
-									<h2>What's New</h2>
-								</header>
 								<div class="content">
-									<div class="media">
-										<a href="images/fulls/01.jpg"><img src="images/thumbs/01.jpg" alt="" title="This right here is a caption." /></a>
-									</div>
-									<div class="media">
-										<a href="images/fulls/05.jpg"><img src="images/thumbs/05.jpg" alt="" title="This right here is a caption." /></a>
-									</div>
-									<div class="media">
-										<a href="images/fulls/09.jpg"><img src="images/thumbs/09.jpg" alt="" title="This right here is a caption." /></a>
-									</div>
-									<div class="media">
-										<a href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt="" title="This right here is a caption." /></a>
-									</div>
-									<div class="media">
-										<a href="images/fulls/06.jpg"><img src="images/thumbs/06.jpg" alt="" title="This right here is a caption." /></a>
-									</div>
-									<div class="media">
-										<a href="images/fulls/10.jpg"><img src="images/thumbs/10.jpg" alt="" title="This right here is a caption." /></a>
-									</div>
-									<div class="media">
-										<a href="images/fulls/03.jpg"><img src="images/thumbs/03.jpg" alt="" title="This right here is a caption." /></a>
-									</div>
-									<div class="media">
-										<a href="images/fulls/07.jpg"><img src="images/thumbs/07.jpg" alt="" title="This right here is a caption." /></a>
-									</div>
+									<?
+										$obj = getInfo();
+												for($i=0; $i<8; $i++){
+														$str = "<div class='media all people'>"."<a href='view.php?table=<?=$table?>&page=<?=$page?>'><img src='./free/data/".$obj[$i]->file_copied_0."' alt='' title='This right here is a caption.' /></a>
+														</div>";
+														echo $str;
+														echo $obj[0]->file_name;
+												}
+									?>
 								</div>
 								<footer>
 									<a href="./free/list.php" class="button big">전체보기</a>
 								</footer>
+
 							</div>
+
+							<footer id="footer">
+								<div class="copyright">
+									&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
+								</div>
+							</footer>
 					</section>
 				<!--
 
@@ -160,12 +177,9 @@
 					</section>
 				-->
 				<!-- Footer -->
-					<footer id="footer">
-						<div class="copyright">
-							&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
-						</div>
-					</footer>
+
 			</section>
+
 	</div>
 	<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
