@@ -82,6 +82,7 @@
 
 				<!-- Banner -->
 					<section id="banner">
+
 						<div class="inner">
 							<h1>중고나라</h1>
 							<?
@@ -109,9 +110,9 @@
 						<div class="gallery">
 							<header class="special">
 								<h2>What's NEW?</h2>
-
-							</header>
 								<br>
+							</header>
+
 						<!-- Photo Galleries -->
 								<div class="content">
 									<?
@@ -182,6 +183,8 @@
 
 	</div>
 	<!-- Scripts -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="responsiveslides.min.js"></script>
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/jquery.poptrox.min.js"></script>
 		<script src="assets/js/jquery.scrolly.min.js"></script>
