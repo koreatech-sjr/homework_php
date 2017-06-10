@@ -97,7 +97,14 @@
 								<li data-target="#myCarousel" data-slide-to="2"></li>
 							</ol>
 							<!--페이지-->
+							<div class="carousel-inner">
+								<?
+									$obj = getInfo();
+											for($i=0; $i<3; $i++){
 
+											}
+								?>
+							</div>
 							<div class="carousel-inner">
 								<!--슬라이드1-->
 								<div class="item active">
