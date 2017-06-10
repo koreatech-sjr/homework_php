@@ -30,8 +30,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link href="../css/common.css" rel="stylesheet" type="text/css" media="all">
-<link href="../css/board1.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="../assets/css/main.css" />
 <script>
     function del(href)
     {
@@ -43,64 +42,75 @@
 </head>
 
 <body>
-<div id="wrap">
-  <div id="header">
-    <? include "../lib/top_login2.php"; ?>
-  </div>  <!-- end of header -->
-  <div id="menu">
-	<? include "../lib/top_menu2.php"; ?>
-  </div>  <!-- end of menu -->
+<div class="page-wrap">
+	<!-- nav -->
+	<nav id="nav">
+			<? include "../lib/top_login1.php"; ?>
+	</nav>
+	<section id="main">
+		<header id="header">
+			<div>Snapshot <span>by TEMPLATED</span></div>
+		</header>
+		<section>
 
-  <div id="content">
-	<div id="col1">
-		<div id="left_menu">
-<?
-			include "../lib/left_menu.php";
-?>
+		<div class="inner">
+			<div id="content">
+
+			<div id="col2">
+				<h3>질문과답변</h3>
+				<div id="view_comment"> &nbsp;</div>
+				<!-- 질문 타이틀 작성자/ 조회수/ 시간 -->
+				<div id="view_title">
+					<div id="view_title1"><h4>질문제목 : <?= $item_subject ?></h4>	</div><div id="view_title2"><?= $item_nick ?> | 조회 : <?= $item_hit ?>
+					                      | <?= $item_date ?> </div>
+				</div>
+				<br>
+				<!-- 질문내용 -->
+				<h4>질문내용</h4>
+				<div id="view_content" style="width:96%;
+				min-height:300px;
+				padding:15px;
+				overflow:hidden;
+				line-height:150%;
+				border-bottom:solid 1px #cccccc;">
+					<?= $item_content ?>
+				</div>
+				<br>
+				<div id="view_button" style="float: right;">
+						<a href="list.php?table=<?=$table?>&page=<?=$page?>"><img src="../img/list.png"></a>&nbsp;
+		<?
+			if($userid && ($userid==$item_id) )
+			{
+		?>
+						<a href="write_form.php?table=<?=$table?>&mode=modify&num=<?=$num?>&page=<?=$page?>"><img src="../img/modify.png"></a>&nbsp;
+						<a href="javascript:del('delete.php?table=<?=$table?>&num=<?=$num?>')"><img src="../img/delete.png"></a>&nbsp;
+		<?
+			}
+		?>
+		<?
+			if($userid)
+			{
+		?>
+						<a href="write_form.php?table=<?=$table?>&mode=response&num=<?=$num?>&page=<?=$page?>"><img src="../img/response.png"></a>&nbsp;
+						<a href="write_form.php?table=<?=$table?>"><img src="../img/write.png"></a>
+		<?
+			}
+		?>
+				</div>
+				<div class="clear"></div>
+
+			</div> <!-- end of col2 -->
+		  </div> <!-- end of content -->
 		</div>
-	</div>
 
-	<div id="col2">
-		<div id="title">
-			<img src="../img/title_qna.gif">
+	</section>
+	<footer id="footer">
+		<div class="copyright">
+			&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
 		</div>
+	</footer>
+	</section>
 
-		<div id="view_comment"> &nbsp;</div>
-
-		<div id="view_title">
-			<div id="view_title1"><?= $item_subject ?></div><div id="view_title2"><?= $item_nick ?> | 조회 : <?= $item_hit ?>
-			                      | <?= $item_date ?> </div>
-		</div>
-
-		<div id="view_content">
-			<?= $item_content ?>
-		</div>
-
-		<div id="view_button">
-				<a href="list.php?table=<?=$table?>&page=<?=$page?>"><img src="../img/list.png"></a>&nbsp;
-<?
-	if($userid && ($userid==$item_id) )
-	{
-?>
-				<a href="write_form.php?table=<?=$table?>&mode=modify&num=<?=$num?>&page=<?=$page?>"><img src="../img/modify.png"></a>&nbsp;
-				<a href="javascript:del('delete.php?table=<?=$table?>&num=<?=$num?>')"><img src="../img/delete.png"></a>&nbsp;
-<?
-	}
-?>
-<?
-	if($userid)
-	{
-?>
-				<a href="write_form.php?table=<?=$table?>&mode=response&num=<?=$num?>&page=<?=$page?>"><img src="../img/response.png"></a>&nbsp;
-				<a href="write_form.php?table=<?=$table?>"><img src="../img/write.png"></a>
-<?
-	}
-?>
-		</div>
-		<div class="clear"></div>
-
-	</div> <!-- end of col2 -->
-  </div> <!-- end of content -->
 </div> <!-- end of wrap -->
 
 </body>

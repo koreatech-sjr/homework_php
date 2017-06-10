@@ -76,9 +76,29 @@
 					<? include "../lib/top_login1.php"; ?>
 				</nav>
 				<section id="main">
-					<header id="header">
-						<div>Snapshot <span>by TEMPLATED</span></div>
-					</header>
+					<section id="banner">
+						<div class="inner">
+							<h1>자유게시판</h1>
+							<?
+							if(!$userid)
+								{
+									?>
+							<p>자유롭게 글을 적을 수 있는 게시판입니다!</p>
+							<?
+							}
+							else
+							{
+							?>
+								<p><?=$usernick?>(Lev<?=$userlevel?>) 님 자유롭게 글을 적을 수 있는 게시판입니다!</p>
+							<?
+							}
+							?>
+							<ul class="actions">
+								
+							</ul>
+						</div>
+					</section>
+
 					<section>
 
 						<div class="inner">

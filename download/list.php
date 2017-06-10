@@ -99,9 +99,29 @@
 					<? include "../lib/top_login1.php"; ?>
 				</nav>
 				<section id="main">
-					<header id="header">
-						<div>Snapshot <span>by TEMPLATED</span></div>
-					</header>
+					<!-- Banner -->
+						<section id="banner">
+							<div class="inner">
+								<h1>자료실</h1>
+								<?
+								if(!$userid)
+									{
+										?>
+								<p>공유하고 싶은 파일을 올려주세요!</p>
+								<?
+								}
+								else
+								{
+								?>
+									<p><?=$usernick?>(Lev<?=$userlevel?>) 님 공유하고 싶은 파일을 올려주세요!</p>
+								<?
+								}
+								?>
+								<ul class="actions">
+
+								</ul>
+							</div>
+						</section>
 
 					<div class="inner">
 						<div id="content">

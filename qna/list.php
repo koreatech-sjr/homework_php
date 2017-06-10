@@ -72,9 +72,28 @@ a:hover {text-decoration: underline; color: red;}
 		<? include "../lib/top_login1.php"; ?>
 	</nav>
 	<section id="main">
-		<header id="header">
-			<div>Snapshot <span>by TEMPLATED</span></div>
-		</header>
+		<section id="banner">
+			<div class="inner">
+				<h1>질문게시판</h1>
+				<?
+				if(!$userid)
+					{
+						?>
+				<p>우측하단의 채팅창이 온라인상태일 때 글을남기시면 바로 답변해드립니다!</p>
+				<?
+				}
+				else
+				{
+				?>
+					<p><?=$usernick?>(Lev<?=$userlevel?>) 님 우측하단의 채팅창이 온라인상태일 때 글을남기시면 바로 답변해드립니다!</p>
+				<?
+				}
+				?>
+				<ul class="actions">
+					<li><a href="write_form.php?table=<?=$table?>" class="button alt scrolly big">바로질문하기</a></li>
+				</ul>
+			</div>
+		</section>
 		<section>
 			<div class="inner">
 				<div id="content">
@@ -226,7 +245,7 @@ if($userid)
 			<div class="copyright">
 				&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
 			</div>
-		</footer>	
+		</footer>
 	</section>
 
 </div> <!-- end of wrap -->
