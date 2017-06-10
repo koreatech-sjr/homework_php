@@ -17,8 +17,10 @@
     <section id="main">
       <section id="banner">
         <div class="inner">
-          <h1> &nbsp 로그인</h1>
-        	<div id="col2">
+          <div style="margin-right: auto;">
+            <h1>로그인</h1>
+          </div>
+        	<div id="col2" style="margin-right: 1em;">
                 <form  name="member_form" method="post" action="login.php">
 
 
@@ -70,5 +72,13 @@
        </section> <!-- end of bannner -->
      </section>
    </div> <!-- end of wrap -->
+   <!-- Scripts -->
+   	<script src="../assets/js/jquery.min.js"></script>
+   	<script src="../assets/js/jquery.poptrox.min.js"></script>
+   	<script src="../assets/js/jquery.scrolly.min.js"></script>
+   	<script src="../assets/js/skel.min.js"></script>
+   	<script src="../assets/js/util.js"></script>
+   	<script src="../assets/js/main.js"></script>
+   <!--End of Tawk.to Script-->
 </body>
 </html>

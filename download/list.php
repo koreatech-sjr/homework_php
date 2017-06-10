@@ -117,11 +117,15 @@
 								<?
 								}
 								?>
-								<ul class="actions">
 
-								</ul>
+									<ul class="actions">
+										<li><a href="#1" class="button alt scrolly big">바로보기</a></li>
+									</ul>
+
 							</div>
 						</section>
+						<section id="1">
+
 
 					<div class="inner">
 						<div id="content">
@@ -251,15 +255,23 @@ $number--;
 						</div>
 						<!-- end of content -->
 					</div>
-					<footer id="footer">
-						<div class="copyright">
-							&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
-						</div>
-					</footer>
-				</section>
 
+				</section>
+				<footer id="footer">
+					<div class="copyright">
+						&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
+					</div>
+				</footer>
 			</div>
+			</section>
 			<!-- end of wrap -->
+			<!-- Scripts -->
+				<script src="../assets/js/jquery.min.js"></script>
+				<script src="../assets/js/jquery.poptrox.min.js"></script>
+				<script src="../assets/js/jquery.scrolly.min.js"></script>
+				<script src="../assets/js/skel.min.js"></script>
+				<script src="../assets/js/util.js"></script>
+				<script src="../assets/js/main.js"></script>
 		</body>
 
 	</html>

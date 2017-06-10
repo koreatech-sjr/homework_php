@@ -90,11 +90,11 @@ a:hover {text-decoration: underline; color: red;}
 				}
 				?>
 				<ul class="actions">
-					<li><a href="write_form.php?table=<?=$table?>" class="button alt scrolly big">바로질문하기</a></li>
+					<li><a href="#1" class="button alt scrolly big">바로질문하기</a></li>
 				</ul>
 			</div>
 		</section>
-		<section>
+		<section id="1">
 			<div class="inner">
 				<div id="content">
 
@@ -263,6 +263,13 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
+<!-- Scripts -->
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/jquery.poptrox.min.js"></script>
+	<script src="../assets/js/jquery.scrolly.min.js"></script>
+	<script src="../assets/js/skel.min.js"></script>
+	<script src="../assets/js/util.js"></script>
+	<script src="../assets/js/main.js"></script>
 <!--End of Tawk.to Script-->
 </body>
 </html>

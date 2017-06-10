@@ -93,13 +93,15 @@
 							<?
 							}
 							?>
-							<ul class="actions">
 
-							</ul>
+								<ul class="actions">
+									<li><a href="#1" class="button alt scrolly big">바로보기</a></li>
+								</ul>
+
 						</div>
 					</section>
 
-					<section>
+					<section id="1">
 
 						<div class="inner">
 
@@ -261,7 +263,13 @@
 				</section>
 			</div>
 			<!-- end of wrap -->
-
+			<!-- Scripts -->
+				<script src="../assets/js/jquery.min.js"></script>
+				<script src="../assets/js/jquery.poptrox.min.js"></script>
+				<script src="../assets/js/jquery.scrolly.min.js"></script>
+				<script src="../assets/js/skel.min.js"></script>
+				<script src="../assets/js/util.js"></script>
+				<script src="../assets/js/main.js"></script>
 		</body>
 
 	</html>
