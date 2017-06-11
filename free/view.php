@@ -39,7 +39,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="../assets/css/main.css" />
-<link href="../css/free.css" rel="stylesheet" type="text/css" media="all">
+<link href="../css/concert.css" rel="stylesheet" type="text/css" media="all">
 <script>
     function del(href)
     {
@@ -102,7 +102,7 @@
 				<div>Snapshot <span>by TEMPLATED</span></div>
 			</header>
 			<section>
-				<div class="inner">
+				<div class="inner" style="background: #f2f2f2;">
 					<div id="content">
 								<div id="col2" style="float: left; width: 100%;">
 
