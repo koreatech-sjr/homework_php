@@ -29,7 +29,7 @@
 	</head>
 	<?
 	include "../lib/dbconn.php";
-	$scale=10;			// 한 화면에 표시되는 글 수
+	$scale=2;			// 한 화면에 표시되는 글 수
 
     if ($mode=="search")
 	{

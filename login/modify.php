@@ -21,7 +21,7 @@
    mysql_close();                // DB 연결 끊기
    echo "
 	   <script>
-	    location.href = '../index.php';
+	    location.href = '../index3.php';
 	   </script>
 	";
 ?>

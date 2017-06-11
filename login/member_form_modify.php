@@ -8,19 +8,6 @@
 <link rel="stylesheet" href="../assets/css/main.css" />
 <link href="../css/member.css" rel="stylesheet" type="text/css" media="all">
 <script>
-   function check_id()
-   {
-     window.open("/member/check_id.php?id=" + document.member_form.id.value,
-         "IDcheck",
-          "left=200,top=200,width=250,height=100,scrollbars=no,resizable=yes");
-   }
-
-   function check_nick()
-   {
-     window.open("/member/check_nick.php?nick=" + document.member_form.nick.value,
-         "NICKcheck",
-          "left=200,top=200,width=250,height=100,scrollbars=no,resizable=yes");
-   }
 
    function check_input()
    {
@@ -35,27 +22,6 @@
       {
           alert("비밀번호확인을 입력하세요");
           document.member_form.pass_confirm.focus();
-          return;
-      }
-
-      if (!document.member_form.name.value)
-      {
-          alert("이름을 입력하세요");
-          document.member_form.name.focus();
-          return;
-      }
-
-      if (!document.member_form.nick.value)
-      {
-          alert("닉네임을 입력하세요");
-          document.member_form.nick.focus();
-          return;
-      }
-
-      if (!document.member_form.hp2.value || !document.member_form.hp3.value )
-      {
-          alert("휴대폰 번호를 입력하세요");
-          document.member_form.nick.focus();
           return;
       }
 
@@ -124,15 +90,15 @@
           <section id="banner">
             <div class="inner">
             <div class="column" style="display: block; width: 900px; margin:0 auto; position:relative;">
-              <form name="member_form" method="post" action="insert.php">
+              <form name="member_form" method="post" action="modify.php">
                 <div class="field half first">
                   <h3>회원정보수정</h3>
                   <div class="form_join" style="color: #111111">
                   <div>
-                    <input type="password" name="pass" placeholder="비밀번호를 입력해주세요">
+                    <input type="password" name="pass" placeholder="비밀번호를 입력해주세요(필수)">
                   </div>
                   <br>
-                  <input type="password" name="pass_confirm" placeholder="비밀번호를 다시 입력해주세요">
+                  <input type="password" name="pass_confirm" placeholder="비밀번호 확인(필수)">
                   <br>
                   <input type="text" name="name"  placeholder="이름을 입력해주세요">
                   <br>

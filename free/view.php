@@ -4,8 +4,8 @@
 
 	$sql = "select * from $table where num=$num";
 	$result = mysql_query($sql, $connect);
-	//밑에 줄 오류
-	//$row = mysql_fetch_array($result);
+
+	$row = mysql_fetch_array($result);
 
 	$item_num     = $row[num];
 	$item_id      = $row[id];
@@ -53,6 +53,13 @@
 	$new_hit = $item_hit + 1;
 	$sql = "update $table set hit=$new_hit where num=$num";   // 글 조회수 증가시킴
 	mysql_query($sql, $connect);
+
+	$sql2 = "select hp from member where id='$item_id'";
+	$result = mysql_query($sql2, $connect);
+	// //밑에 줄 오류
+	$row2 = mysql_fetch_array($result);
+	$item_hp = $row2[hp];
+	// mysql_close();
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -81,6 +88,7 @@
 </head>
 
 <body>
+
 <div class="page-wrap">
 	<!-- nav -->
 	<nav id="nav">
@@ -96,7 +104,9 @@
 									<div class="social column">
 										<ul class="icons">
 											<li><h3>글 제목</h3></li>
-											<li><h5>조회수 : ??</h5></li>
+											<li><h5>조회수 :
+												<?=$item_hit + 1?>
+										</h5></li>
 										</ul>
 										<div style="max-width: 100%; height: 400px; overflow: hidden;">
 											<img src="./data/2017_06_03_23_28_28_0.jpg" alt="LOADING" style="width: auto; height: 400px; margin-left: -30px;">
@@ -104,14 +114,13 @@
 										<br>
 										<h5>내용</h5>
 										<ul class="icons">
-											<li><h5>작성자 닉네임</h5></li> <li><h5>작성자 연락처</h5></li>
+											<li><h5>작성자 닉네임 : <?=$item_nick?></h5></li>
+											<li><h5>작성자 연락처 : <?=$item_hp?></h5></li>
 										</ul>
 									</div>
 
 								<!-- Form -->
 									<div class="column">
-
-
 									<div id="ripple">
 										<?
 											    $sql = "select * from free_ripple where parent='$item_num'";
@@ -126,20 +135,18 @@
 													$ripple_content = str_replace(" ", "&nbsp;", $ripple_content);
 													$ripple_date    = $row_ripple[regist_day];
 										?>
+													<div id="ripple_content"><?=$ripple_content?></div>
 													<div id="ripple_writer_title">
 													<ul>
-													<li id="writer_title1"><?=$ripple_nick?></li>
-													<li id="writer_title2"><?=$ripple_date?></li>
-													<li id="writer_title3">
-												      <?
-															if($userid=="admin" || $userid==$ripple_id)
-													          echo "<a href='delete_ripple.php?table=$table&num=$item_num&ripple_num=$ripple_num'>[삭제]</a>";
-													  ?>
-													</li>
+													<li id="writer_title1">닉네임 :  <?=$ripple_nick?></li>
+													<li id="writer_title2">작성 시간 :  <?=$ripple_date?></li>
+													<?
+													if($userid=="admin" || $userid==$ripple_id)
+																echo "<li id='writer_title3'><a href='delete_ripple.php?table=$table&num=$item_num&ripple_num=$ripple_num'>[삭제]</a></li>";
+																?>
 													</ul>
 													</div>
-													<div id="ripple_content"><?=$ripple_content?></div>
-													<div class="hor_line_ripple"></div>
+
 										<?
 												}
 										?>

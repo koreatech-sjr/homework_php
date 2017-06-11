@@ -118,7 +118,7 @@
 															<div style="float: left; width: 30%;">
 																<div class="write_line"></div>
 																<div id="write_row4">
-																	<div class="col1"> 이미지파일1 </div>
+																	<div class="col1"> 파일1 </div>
 																	<div class="col2"><input type="file" name="upfile[]"></div>
 																</div>
 															</div>
@@ -140,7 +140,7 @@
 
 
 																		<div id="write_row5">
-																			<div class="col1"> 이미지파일2 </div>
+																			<div class="col1"> 파일2 </div>
 																			<div class="col2"><input type="file" name="upfile[]"></div>
 																		</div>
 																	</div>
@@ -156,7 +156,7 @@
 
 																			<div style="float: left; width: 30%;">
 																				<div id="write_row6">
-																					<div class="col1"> 이미지파일3 </div>
+																					<div class="col1"> 파일3 </div>
 																					<div class="col2"><input type="file" name="upfile[]"></div>
 																				</div>
 																			</div>

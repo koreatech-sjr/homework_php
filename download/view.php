@@ -11,19 +11,22 @@
 	$item_num     = $row[num];
 	$item_id      = $row[id];
 	$item_name    = $row[name];
-  	$item_nick    = $row[nick];
+  $item_nick    = $row[nick];
 	$item_hit     = $row[hit];
 
-	$image_name[0]   = $row[file_name_0];
-	$image_name[1]   = $row[file_name_1];
-	$image_name[2]   = $row[file_name_2];
+	$file_name[0]   = $row[file_name_0];
+	$file_name[1]   = $row[file_name_1];
+	$file_name[2]   = $row[file_name_2];
+	$file_name[3]   = $row[file_name_3];
+	$file_name[4]   = $row[file_name_4];
 
+	$file_copied[0] = $row[file_copied_0];
+	$file_copied[1] = $row[file_copied_1];
+	$file_copied[2] = $row[file_copied_2];
+	$file_copied[3] = $row[file_copied_3];
+	$file_copied[4] = $row[file_copied_4];
 
-	$image_copied[0] = $row[file_copied_0];
-	$image_copied[1] = $row[file_copied_1];
-	$image_copied[2] = $row[file_copied_2];
-
-    $item_date    = $row[regist_day];
+  $item_date    = $row[regist_day];
 	$item_subject = str_replace(" ", "&nbsp;", $row[subject]);
 
 	$item_content = $row[content];
@@ -33,27 +36,6 @@
 	{
 		$item_content = str_replace(" ", "&nbsp;", $item_content);
 		$item_content = str_replace("\n", "<br>", $item_content);
-	}
-
-	for ($i=0; $i<3; $i++)
-	{
-		if ($image_copied[$i])
-		{
-			$imageinfo = GetImageSize("./data/".$image_copied[$i]);
-
-			$image_width[$i] = $imageinfo[0];
-			$image_height[$i] = $imageinfo[1];
-			$image_type[$i]  = $imageinfo[2];
-
-			if ($image_width[$i] > 785)
-				$image_width[$i] = 785;
-		}
-		else
-		{
-			$image_width[$i] = "";
-			$image_height[$i] = "";
-			$image_type[$i]  = "";
-		}
 	}
 
 	$new_hit = $item_hit + 1;
@@ -102,24 +84,21 @@
 						<div id="view_comment"> &nbsp;</div>
 
 						<div id="view_title">
-							<div id="view_title1"><?= $item_subject ?></div><div id="view_title2"><?= $item_nick ?> | 조회 : <?= $item_hit ?>
+							<div id="view_title1"><?= $item_subject ?></div><div id="view_title2"><?= $item_nick ?> | 조회 : <?= $item_hit+1 ?>
 																		| <?= $item_date ?> </div>
 						</div>
 
 						<div id="view_content">
 				<?
-					for ($i=0; $i<3; $i++)
+					for ($i=1; $i<4; $i++)
 					{
-						if ($image_copied[$i])
+						if ($file_copied[$i-1])
 						{
-							$img_name = $image_copied[$i];
-							$img_name = "./data/".$img_name;
-							$img_width = $image_width[$i];
-
-							echo "<img src='$img_name' width='$img_width'>"."<br><br>";
+							echo "첨부파일$i : <a href='./data/$file_copied[$i]'>"."별첨".$i."</a></br>";
 						}
 					}
 				?>
+				<br />
 							<?= $item_content ?>
 						</div>
 

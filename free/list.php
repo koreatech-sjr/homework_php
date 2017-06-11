@@ -4,28 +4,30 @@
 	$ripple = "free_ripple";
 ?>
 <?
-    function getInfo() {
-      include "../lib/dbconn.php";
+    // function getInfo() {
+    //   include "../lib/dbconn.php";
+		//
+    //   $sql = "select * from free";
+    //   $result = mysql_query($sql, $connect);
+		//
+    //   $count = 0;
+		//
+    //   while($row = mysql_fetch_array($result)) {
+    //     $obj[$count] = (object)array('num' => $row[num], 'id' => $row[id], 'name' => $row[name], 'nick' => $row[nick],
+    //     'subject' => $row[subject], 'content' => $row[content], 'regist_day' => $row[regist_day],
+    //     'hit' => $row[hit], 'is_html' => $row[is_html], 'file_name_0' => $row[file_name_0],
+    //     'file_name_1' => $row[file_name_1], 'file_name_2' => $row[file_name_2], 'file_name_3' => $row[file_name_3], 'file_name_4' => $row[file_name_4],
+    //     'file_copied_0' => $row[file_copied_0], 'file_copied_1' => $row[file_copied_1], 'file_copied_2' => $row[file_copied_2],
+    //     'file_copied_3' => $row[file_copied_3], 'file_copied_4' => $row[file_copied_4]);
+    //     $count++;
+    //   }
+		//
+    //   return $obj;
+    // }
+		  include "../lib/dbconn.php";
 
-      $sql = "select * from free";
-      $result = mysql_query($sql, $connect);
-
-      $count = 0;
-
-      while($row = mysql_fetch_array($result)) {
-        $obj[$count] = (object)array('id' => $row[id], 'name' => $row[name], 'nick' => $row[nick],
-        'subject' => $row[subject], 'content' => $row[content], 'regist_day' => $row[regist_day],
-        'hit' => $row[hit], 'is_html' => $row[is_html], 'file_name_0' => $row[file_name_0],
-        'file_name_1' => $row[file_name_1], 'file_name_2' => $row[file_name_2], 'file_name_3' => $row[file_name_3], 'file_name_4' => $row[file_name_4],
-        'file_copied_0' => $row[file_copied_0], 'file_copied_1' => $row[file_copied_1], 'file_copied_2' => $row[file_copied_2],
-        'file_copied_3' => $row[file_copied_3], 'file_copied_4' => $row[file_copied_4]);
-        $count++;
-      }
-
-      mysql_close();
-
-      return $obj;
-    }
+		  $sql = "select * from free";
+		  $result = mysql_query($sql, $connect);
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -40,7 +42,7 @@
 
 <?
 	include "../lib/dbconn.php";
-	$scale=10;			// 한 화면에 표시되는 글 수
+	$scale=8;			// 한 화면에 표시되는 글 수
 
     if ($mode=="search")
 	{
@@ -98,12 +100,7 @@
 							</ol>
 							<!--페이지-->
 							<div class="carousel-inner">
-								<?
-									$obj = getInfo();
-											for($i=0; $i<3; $i++){
 
-											}
-								?>
 							</div>
 							<div class="carousel-inner">
 								<!--슬라이드1-->
@@ -111,8 +108,8 @@
 									<img src="http://www.blueb.co.kr/SRC2/_image/w01.jpg" style="width:100%" alt="First slide">
 									<div class="container">
 										<div class="carousel-caption">
-											<h1>Slide 1</h1>
-											<p>텍스트 1</p>
+											<h1>중고의 새로운 혁명</h1>
+											<p>안녕하세요</p>
 										</div>
 									</div>
 								</div>
@@ -123,8 +120,8 @@
 									<img src="http://www.blueb.co.kr/SRC2/_image/w02.jpg" style="width:100%" data-src="" alt="Second slide">
 									<div class="container">
 										<div class="carousel-caption">
-											<h1>Slide 2</h1>
-											<p>텍스트 2</p>
+											<h1>헌것 같은 새것 같은</h1>
+											<p>당신을 위한</p>
 										</div>
 									</div>
 								</div>
@@ -135,8 +132,8 @@
 									<img src="http://www.blueb.co.kr/SRC2/_image/w03.jpg" style="width:100%" data-src="" alt="Third slide">
 									<div class="container">
 										<div class="carousel-caption">
-											<h1>Slide 3</h1>
-											<p>텍스트 3</p>
+											<h1>당신만의 유물</h1>
+											<p>제품이 기다리고 있습니다</p>
 										</div>
 									</div>
 								</div>
@@ -164,12 +161,17 @@
 
 									<div class="content">
 										<?
-											$obj = getInfo();
-													for($i=0; $i<8; $i++){
-															$str = "<div style='margin-top: 0px;' class='media all people'>"."<a href='view.php?table=<?=$table?>&page=<?=$page?>'><img src='./data/".$obj[$i]->file_copied_0."' alt='' title='This right here is a caption.' /></a>
+													for($i=$start; $i<$start+$scale && $i < $total_record; $i++){
+														mysql_data_seek($result, $i);
+														$row = mysql_fetch_array($result);
+
+														$item_num = $row[num];
+														$item_file_copied_0 = $row[file_copied_0];
+
+															$str = "<div style='margin-top: 0px;' class='media all people'>"."<a href='view.php?table=$table&page=$page&num=".$item_num."'><img src='./data/".$item_file_copied_0."' alt='' title='This right here is a caption.' /></a>
 															</div>";
 															echo $str;
-															echo $obj[0]->file_name;
+															// echo $obj[0]->file_name;
 													}
 										?>
 									</div>
