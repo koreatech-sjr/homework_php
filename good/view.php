@@ -198,6 +198,20 @@
 										 <center><div id="ripple_box3"><a href="#"><input class="button" value="댓글 달기" onclick="check_input()"></button></a></div></center>
 									</div>
 									</form>
+									<script>
+										 (function() {
+												var cx = '015498997210501588647:lamwdb7zdfm';
+												var gcse = document.createElement('script');
+												gcse.type = 'text/javascript';
+												gcse.async = true;
+												gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+												var s = document.getElementsByTagName('script')[0];
+												s.parentNode.insertBefore(gcse, s);
+										 })();
+									</script>
+									<div class="inner">
+										<gcse:search></gcse:search>
+									</div>
 								</div> <!-- end of ripple -->
 
 							</section>
