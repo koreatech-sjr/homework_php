@@ -45,14 +45,14 @@
         </tr>
         <tr height=1 bgcolor=#cccccc><td></td></tr>
        <tr height=7><td></td></tr>
-       <tr><td><b> ♬ 가장 좋아하는 기타 작곡가는?</b></td></tr>
-       <tr><td><input type=radio name='composer' value='ans1' >1. 타레가</td></tr>
+       <tr><td><b> 평점을 매겨 주세요 </b></td></tr>
+       <tr><td><input type=radio name='composer' value='ans1' >1. 매우 안좋음</td></tr>
        <tr height=5><td></td></tr>
-       <tr><td><input type=radio name='composer' value='ans2' >2. 빌라로보스</td></tr>
+       <tr><td><input type=radio name='composer' value='ans2' >2. 안좋음</td></tr>
        <tr height=5><td></td></tr>
-       <tr><td><input type=radio name='composer' value='ans3' >3. 끌레양</td></tr>
+       <tr><td><input type=radio name='composer' value='ans3' >3. 좋음</td></tr>
        <tr height=5><td></td></tr>
-       <tr><td><input type=radio name='composer' value='ans4' >4. 소르</td></tr>
+       <tr><td><input type=radio name='composer' value='ans4' >4. 매우 좋음</td></tr>
        <tr height=7><td></td></tr>
        <tr height=1 bgcolor=#cccccc><td></td></tr>
        <tr>

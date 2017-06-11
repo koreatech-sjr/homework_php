@@ -123,6 +123,28 @@
 								</footer>
 
 							</div>
+							<div id="banner" style="background-image: url(/assets/css/2.jpg);">
+								<div class="inner">
+									<h1>중고나라</h1>
+									<?
+									if(!$userid)
+										{
+											?>
+
+									<?
+									}
+									else
+									{
+									?>
+										<p><?=$usernick?>(Lev<?=$userlevel?>) 님 중고나라를 평가해주세요.</p>
+									<?
+									}
+									?>
+									<ul class="actions">
+										<li><a target="_blank" href="/survey/survey.php" class="button alt scrolly big">평가하기</a></li>
+									</ul>
+								</div>
+							</div>
 
 							<footer id="footer">
 								<div class="copyright">
@@ -130,6 +152,7 @@
 								</div>
 							</footer>
 					</section>
+
 				<!--
 
 					<section id="contact">
@@ -173,6 +196,7 @@
 				<!-- Footer -->
 
 			</section>
+
 
 	</div>
 	<!-- Scripts -->

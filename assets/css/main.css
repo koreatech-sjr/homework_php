@@ -1652,6 +1652,147 @@
 				}
 
 			}
+			#banner {
+				display: -ms-flexbox;
+				-ms-flex-pack: center;
+				-ms-flex-align: center;
+				padding: 8em 0 6em 0;
+				-moz-align-items: center;
+				-webkit-align-items: center;
+				-ms-align-items: center;
+				align-items: center;
+				display: -moz-flex;
+				display: -webkit-flex;
+				display: -ms-flex;
+				display: flex;
+				-moz-justify-content: center;
+				-webkit-justify-content: center;
+				-ms-justify-content: center;
+				justify-content: center;
+				min-height: 75vh;
+				height: 100vh;
+				position: relative;
+				background: #000;
+				background-image: url(main.jpg);
+				background-size: cover;
+				background-attachment: fixed;
+				background-repeat: no-repeat;
+				background-position: center;
+				text-align: center;
+				color: #FFF;
+			}
+
+				#banner2:before {
+					-moz-transition: opacity 3s ease;
+					-webkit-transition: opacity 3s ease;
+					-ms-transition: opacity 3s ease;
+					transition: opacity 3s ease;
+					-moz-transition-delay: 0.25s;
+					-webkit-transition-delay: 0.25s;
+					-ms-transition-delay: 0.25s;
+					transition-delay: 0.25s;
+					content: '';
+					display: block;
+					background-color: #000;
+					height: 100%;
+					left: 0;
+					opacity: 0.65;
+					position: absolute;
+					top: 0;
+					width: 100%;
+					z-index: 1;
+				}
+
+				#banner2 .inner {
+					-moz-transform: none;
+					-webkit-transform: none;
+					-ms-transform: none;
+					transform: none;
+					-moz-transition: opacity 1s ease, transform 1s ease;
+					-webkit-transition: opacity 1s ease, transform 1s ease;
+					-ms-transition: opacity 1s ease, transform 1s ease;
+					transition: opacity 1s ease, transform 1s ease;
+					position: relative;
+					opacity: 1;
+					z-index: 3;
+					padding: 0 2em;
+				}
+
+				#banner2 h1 {
+					font-size: 4em;
+					line-height: 1em;
+					margin: 0 0 0.5em 0;
+					padding: 0;
+					color: #FFF;
+				}
+
+				#banner2 p {
+					font-size: 1.5em;
+					margin-bottom: 1.75em;
+				}
+
+				#banner2 a {
+					color: #FFF;
+					text-decoration: none;
+				}
+
+				@media screen and (max-width: 1280px) {
+
+					#banner2 h1 {
+						font-size: 3.5em;
+					}
+
+				}
+
+				@media screen and (max-width: 736px) {
+
+					#banner2 {
+						background-attachment: scroll;
+					}
+
+						#banner2 h1 {
+							font-size: 2.25em;
+						}
+
+						#banner2 p {
+							font-size: 1.25em;
+						}
+
+				}
+
+			/* Main */
+
+			#main {
+				background: #ffffff;
+				width: 100%;
+			}
+
+				#main #header {
+					background: #e6e6e6;
+					padding: 1.15em 3.5em;
+					text-align: right;
+				}
+
+					#main #header h1 {
+						margin: 0;
+						font-size: 1em;
+					}
+
+					@media screen and (max-width: 980px) {
+
+						#main #header {
+							padding: 1.15em 2em;
+						}
+
+					}
+
+					@media screen and (max-width: 736px) {
+
+						#main #header {
+							text-align: center;
+						}
+
+					}
 
 /* Footer */
 
