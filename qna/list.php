@@ -87,7 +87,7 @@ a:hover {text-decoration: underline; color: red;}
 				<li><a href="../good/list.php"><p>SALE</p></a></li>
 				<li><a href="../free/list.php"><p>Board</p></a></li>
 				<li><a href="../download/list.php"><p>FILE</p></a></li>
-				<li><a href="../greet/list.php"><p>Anony</p></a></li>
+				<li><a href="../anony/list.php"><p>Anony</p></a></li>
 				<li><a href="../qna/list.php" class="active"><p>QNA</p></a></li>
 	<?
 	}
@@ -103,7 +103,7 @@ a:hover {text-decoration: underline; color: red;}
 				<li><a href="../good/list.php"><p>SALE</p></a></li>
 				<li><a href="../free/list.php"><p>Board</p></span></a></li>
 				<li><a href="../download/list.php"><p>FILE</p></a></li>
-				<li><a href="../greet/list.php"><p>Anony</p></a></li>
+				<li><a href="../anony/list.php"><p>Anony</p></a></li>
 				<li><a href="../qna/list.php" class="active"><p>QNA</p></span></a></li>
 		<?
 	}
