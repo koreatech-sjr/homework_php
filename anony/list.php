@@ -151,7 +151,7 @@
 
 									<div id="title" style="width: 100%;">
 										<div style="float: left; width: 15%;">
-											<h3>자유게시판</h3>
+											<h3>익명게시판</h3>
 										</div>
 									</div>
 
