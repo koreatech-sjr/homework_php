@@ -1,4 +1,4 @@
-create table free (
+create table good (
    num int not null auto_increment,
    id char(15) not null,
    name  char(10) not null,
@@ -17,6 +17,6 @@ create table free (
    file_copied_1 char(30),
    file_copied_2 char(30),
    file_copied_3 char(30),
-   file_copied_4 char(30), 
+   file_copied_4 char(30),
    primary key(num)
 );

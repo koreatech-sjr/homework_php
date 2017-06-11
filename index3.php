@@ -4,7 +4,7 @@
 <?
 	include "./lib/dbconn.php";
 
-	$sql = "select * from free order by num desc";
+	$sql = "select * from good order by num desc";
 	$result = mysql_query($sql, $connect);
 	$total_record = mysql_num_rows($result);
 	$scale = 8;
@@ -37,7 +37,7 @@
 						<li><a href="./login/login_form.php"><!--로그인--><p>Login</p></a></li>
 						<li><a href="./member/member_form.php"><!--회원가입--><p>Join</p></a></li>
 						<li><a href="./memo/memo.php"><p>1-Line</p></a></li>
-						<li><a href="./free/list.php"><p>SALE</p></a></li>
+						<li><a href="./good/list.php"><p>SALE</p></a></li>
 						<li><a href="./concert/list.php"><p>Board</p></a></li>
 						<li><a href="./download/list.php"><p>FILE</p></span></a></li>
 						<li><a href="./greet/list.php"><p>Anony</p></a></li>
@@ -52,7 +52,7 @@
 					<li><a href="./login/logout.php"><p>LogOut</p></span></a></li>
 					<li><a href="./login/member_form_modify.php"> <p>My</p></a></li>
 					<li><a href="./memo/memo.php"> <p>1-Line</p> </span></a></li>
-					<li><a href="./free/list.php"><p>SALE</p></a></li>
+					<li><a href="./good/list.php"><p>SALE</p></a></li>
 					<li><a href="./concert/list.php"><p>Board</p></a></li>
 					<li><a href="./download/list.php"><p>FILE</p></a></li>
 					<li><a href="./greet/list.php"><p>Anony</p></a></li>
@@ -110,8 +110,8 @@
 													$item_file_copied_0 = $row[file_copied_0];
 
 														$str = "<div style='margin-top: 0px;' class='media'>"
-														."<a href='/free/view.php?table=$table&page=$page&num="
-														.$item_num."'><img src='/free/data/".$item_file_copied_0."'
+														."<a href='/good/view.php?table=$table&page=$page&num="
+														.$item_num."'><img src='./good/data/".$item_file_copied_0."'
 														alt='' title='This right here is a caption.' /></a>
 														</div>";
 														echo $str;
@@ -119,7 +119,7 @@
 									?>
 								</div>
 								<footer>
-									<a href="./free/list.php" class="button big">전체보기</a>
+									<a href="./good/list.php" class="button big">전체보기</a>
 								</footer>
 
 							</div>
@@ -152,49 +152,6 @@
 								</div>
 							</footer>
 					</section>
-
-				<!--
-
-					<section id="contact">
-
-							<div class="social column">
-								<h3>About Me</h3>
-								<p>Mus sed interdum nunc dictum rutrum scelerisque erat a parturient condimentum potenti dapibus vestibulum condimentum per tristique porta. Torquent a ut consectetur a vel ullamcorper a commodo a mattis ipsum class quam sed eros vestibulum quisque a eu nulla scelerisque a elementum vestibulum.</p>
-								<p>Aliquet dolor ultricies sem rhoncus dolor ullamcorper pharetra dis condimentum ullamcorper rutrum vehicula id nisi vel aptent orci litora hendrerit penatibus erat ad sit. In a semper velit eleifend a viverra adipiscing a phasellus urna praesent parturient integer ultrices montes parturient suscipit posuere quis aenean. Parturient euismod ultricies commodo arcu elementum suspendisse id dictumst at ut vestibulum conubia quisque a himenaeos dictum proin dis purus integer mollis parturient eros scelerisque dis libero parturient magnis.</p>
-								<h3>Follow Me</h3>
-								<ul class="icons">
-									<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-								</ul>
-							</div>
-
-
-							<div class="column">
-								<h3>Get in Touch</h3>
-								<form action="#" method="post">
-									<div class="field half first">
-										<label for="name">Name</label>
-										<input name="name" id="name" type="text" placeholder="Name">
-									</div>
-									<div class="field half">
-										<label for="email">Email</label>
-										<input name="email" id="email" type="email" placeholder="Email">
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
-									</div>
-									<ul class="actions">
-										<li><input value="Send Message" class="button" type="submit"></li>
-									</ul>
-								</form>
-							</div>
-
-					</section>
-				-->
-				<!-- Footer -->
-
 			</section>
 
 

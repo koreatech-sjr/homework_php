@@ -17,7 +17,7 @@
    $regist_day = date("Y-m-d (H:i)");  // 현재의 '년-월-일-시-분'을 저장
 
    // 레코드 삽입 명령
-   $sql = "insert into free_ripple (parent, id, name, nick, content, regist_day) ";
+   $sql = "insert into good_ripple (parent, id, name, nick, content, regist_day) ";
    $sql .= "values($num, '$userid', '$username', '$usernick', '$ripple_content', '$regist_day')";
 
    mysql_query($sql, $connect);  // $sql 에 저장된 명령 실행

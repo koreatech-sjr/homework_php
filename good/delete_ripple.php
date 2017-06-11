@@ -1,7 +1,7 @@
 <?
       include "../lib/dbconn.php";
 
-      $sql = "delete from free_ripple where num=$ripple_num";
+      $sql = "delete from good_ripple where num=$ripple_num";
       mysql_query($sql, $connect);
       mysql_close();
 
