@@ -137,7 +137,7 @@
 				if( $userid && ($mode != "modify") )
 				{
 			?>
-
+				<div class="col3"><input type="checkbox" name="html_ok" value="y"> HTML 쓰기</div>
 																<?
 				}
 			?>
