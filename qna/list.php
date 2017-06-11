@@ -171,29 +171,39 @@ a:hover {text-decoration: underline; color: red;}
 
 						<div id="list_content">
 							<?
-for ($i=$start; $i<$start+$scale && $i < $total_record; $i++)
-{
-mysql_data_seek($result, $i);
-// 가져올 레코드로 위치(포인터) 이동
-$row = mysql_fetch_array($result);
-// 하나의 레코드 가져오기
+								for ($i=$start; $i<$start+$scale && $i < $total_record; $i++)
+								{
+								mysql_data_seek($result, $i);
+								// 가져올 레코드로 위치(포인터) 이동
+								$row = mysql_fetch_array($result);
+								// 하나의 레코드 가져오기
 
-$item_num     = $row[num];
-$item_id      = $row[id];
-$item_name    = $row[name];
-$item_nick    = $row[nick];
-$item_hit     = $row[hit];
-$item_date    = $row[regist_day];
-$item_date = substr($item_date, 0, 10);
-$item_subject = str_replace(" ", "&nbsp;", $row[subject]);
-?>
+								$item_num     = $row[num];
+								$item_id      = $row[id];
+								$item_name    = $row[name];
+								$item_nick    = $row[nick];
+								$item_hit     = $row[hit];
+								$item_date    = $row[regist_day];
+								$item_depth   = $row[depth];
+								$space = "";
+									for($j=0 ; $j<$item_depth ; $j++) {
+										$space = "&nbsp;&nbsp;".$space;
+									}
+									if($item_depth!=0) {
+											$space = $space."[re]";
+									}
+
+								$item_date = substr($item_date, 0, 10);
+								$item_subject = str_replace(" ", "&nbsp;", $row[subject]);
+								?>
 
 								<tr style="width: 100%;">
 									<td>
 										<?= $number ?>
 									</td>
 									<td>
-										<a href="view.php?table=<?=$table?>&num=<?=$item_num?>&page=<?=$page?>">
+
+										<?=$space?><a href="view.php?table=<?=$table?>&num=<?=$item_num?>&page=<?=$page?>">
 											<?= $item_subject ?>
 										</a>
 									</td>

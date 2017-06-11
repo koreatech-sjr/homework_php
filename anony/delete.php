@@ -3,7 +3,7 @@
 
    include "../lib/dbconn.php";
 
-   $sql = "delete from greet where num = $num";
+   $sql = "delete from anony where num = $num";
    mysql_query($sql, $connect);
 
    mysql_close();
@@ -14,4 +14,3 @@
 	   </script>
 	";
 ?>
-

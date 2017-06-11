@@ -121,6 +121,12 @@
 									<form name="board_form" method="post" action="insert.php?mode=modify&num=<?=$num?>&page=<?=$page?>&table=<?=$table?>" enctype="multipart/form-data">
 										<?
 				}
+				elseif ($mode=="response")
+	{
+?>
+		<form  name="board_form" method="post" action="insert.php?mode=response&num=<?=$num?>&page=<?=$page?>&table=<?=$table?>">
+<?
+	}
 				else
 				{
 			?>

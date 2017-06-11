@@ -126,7 +126,7 @@
 												<div class="write_line"></div>
 												<div class="clear"><br></div>
 												<div>
-													<div style="float: left; width: 67%;">
+													<div style="float: left; width: 99%;">
 														<div id="write_row3">
 															<div class="col1">
 																<h5>내용</h5> </div>
@@ -134,56 +134,7 @@
 														</div>
 													</div>
 													<center>
-													<div style="float: left; width: 33%";>
 
-															<div class="write_line"></div>
-															<center>
-															<div id="write_row4"><br><br>
-
-																<div class="col1"> <h4>이미지파일1 : <input type="file" name="upfile[]"></div><br></h4>
-
-
-															</div>
-														</center>
-															<div class="clear"></div>
-															<? 	if ($mode=="modify" && $item_file_0)
-																{
-															?>
-															<div class="delete_ok">
-																<?=$item_file_0?> 파일이 등록되어 있습니다. <input type="checkbox" name="del_file[]" value="0"> 삭제</div>
-															<div class="clear"></div>
-															<?
-																}
-															?>
-															<div class="write_line"></div>
-															<div id="write_row5">
-																	<div class="col1"><h4>이미지파일2 : <input type="file" name="upfile[]"></div><br></h4>
-															</div>
-															<? 	if ($mode=="modify" && $item_file_1)
-																{
-															?>
-															<div class="delete_ok">
-																<?=$item_file_1?> 파일이 등록되어 있습니다. <input type="checkbox" name="del_file[]" value="1"> 삭제</div>																<div class="clear"></div>
-																<?
-																	}
-																?>
-															<div class="write_line"></div>
-															<div class="clear"></div>
-															<div id="write_row6">
-															<div class="col1"> <h4>이미지파일3 : <input type="file" name="upfile[]"></div><br></h4>
-														</div>
-													<? 	if ($mode=="modify" && $item_file_2)
-														{
-													?>
-													<div class="delete_ok">
-														<?=$item_file_2?> 파일이 등록되어 있습니다. <input type="checkbox" name="del_file[]" value="2"> 삭제</div>
-													<div class="clear"></div>
-													<?
-														}
-													?>
-													<div class="write_line"></div>
-													<div class="clear"></div>
-												</div>
 											</center>
 
 										</div>

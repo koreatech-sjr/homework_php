@@ -128,11 +128,11 @@
 
 						<div id="view_content">
 				<?
-					for ($i=1; $i<4; $i++)
+					for ($i=0; $i<3; $i++)
 					{
-						if ($file_copied[$i-1])
+						if ($file_copied[$i])
 						{
-							echo "첨부파일$i : <a href='./data/$file_copied[$i]'>"."별첨".$i."</a></br>";
+							echo "첨부파일$i : <a href='./data/$file_copied[$i]'>"."별첨".($i+1)."</a></br>";
 						}
 					}
 				?>
