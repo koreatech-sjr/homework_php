@@ -145,7 +145,36 @@
 									</ul>
 								</div>
 							</div>
-
+							<section>
+								<div class="inner">
+								<style>
+										#map {
+										 height: 400px;
+										 width: 80%;
+										}
+								 </style>
+								 <center><h3>KOREATECH 위치</h3></center><br>
+								 <center><div id="map"></div></center>
+								 <script>
+									 function initMap() {
+										 var uluru = {lat: 36.763767, lng: 127.281854};
+										 var map = new google.maps.Map(document.getElementById('map'), {
+											 zoom: 15,
+											 center: uluru
+										 });
+										 var marker = new google.maps.Marker({
+											 position: uluru,
+											 map: map
+										 });
+									 }
+								 </script>
+								 <script async defer
+								 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYyp3fmyrcnwwhzB7NV3YPZ9LdTjug4sY&callback=initMap">
+								 </script>
+								 <br>
+								 <br>
+								</div>
+							</section>
 							<footer id="footer">
 								<div class="copyright">
 									&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
