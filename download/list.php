@@ -96,7 +96,45 @@
 			<div class="page-wrap">
 				<!-- nav -->
 				<nav id="nav">
-					<? include "../lib/top_login1.php"; ?>
+				<style media="screen">
+				p {
+					font-size: medium;
+				}
+				</style>
+				<?
+					if(!$userid)
+				{
+				?>
+						<ul style="width=54px; ">
+							<li><a href="../index3.php"><!--홈--><p>HOME</p></a></li>
+							<li><a href="../login/login_form.php"><!--로그인--><p>Login</p></a></li>
+							<li><a href="../member/member_form.php"><!--회원가입--><p>Join</p></a></li>
+							<li><a href="../memo/memo.php"><p>1-Line</p></a></li>
+							<li><a href="../free/list.php"><p>SALE</p></a></li>
+							<li><a href="../concert/list.php"><p>Board</p></a></li>
+							<li><a href="../download/list.php" class="active"><p>FILE</p></a></li>
+							<li><a href="../greet/list.php"><p>Anony</p></a></li>
+							<li><a href="../qna/list.php"><p>QNA</p></a></li>
+				<?
+				}
+				else
+				{
+
+					?>
+						<ul style="width=54px; ">
+							<li><a href="../index3.php"><p>HOME</p></a></li>
+							<li><a href="../login/logout.php"><p>LogOut</p></span></a></li>
+							<li><a href="../login/member_form_modify.php"> <p>My</p></a></li>
+							<li><a href="../memo/memo.php"> <p>1-Line</p> </span></a></li>
+							<li><a href="../free/list.php"><p>SALE</p></a></li>
+							<li><a href="../concert/list.php"><p>Board</p></span></a></li>
+							<li><a href="../download/list.php" class="active"><p>FILE</p></a></li>
+							<li><a href="../greet/list.php"><p>Anony</p></a></li>
+							<li><a href="../qna/list.php"><p>QNA</p></span></a></li>
+					<?
+				}
+				?>
+				</ul>
 				</nav>
 				<section id="main">
 					<!-- Banner -->
@@ -217,6 +255,7 @@ $number--;
 			?>
 													&nbsp;&nbsp;&nbsp;&nbsp;다음 ▶
 											</div>
+											<br>
 											<a href="list.php?table=<?=$table?>&page=<?=$page?>"><input type="button" name="목록" value="글목록"></a>
 											&nbsp;
 											<?
@@ -233,7 +272,7 @@ if($userid)
 										<!-- end of page_button -->
 										<form name="board_form" method="post" action="list.php?table=<?=$table?>&mode=search">
 											<div id="list_search" style="width: 100%;">
-
+													<br>
 
 												<div id="list_search3" style="float: left; width: 13%;">
 													<select name="find">
@@ -242,8 +281,9 @@ if($userid)
 														<option value='nick'>별명</option>
 														<option value='name'>이름</option>
 								</select></div>
+								&nbsp&nbsp&nbsp
 												<div id="list_search4" style="float: left; width: 60%;"><input type="text" name="search"></div>
-												<div id="list_search5" style="float: left; width: 10%;"><input type="submit" name="검색" value="검색"></div></div>
+												&nbsp&nbsp&nbsp<div id="list_search5" style="float: right; width: 20%;"><input type="submit" name="검색" value="검색"></div></div>
 											</div>
 										</form>
 									</center>
@@ -255,14 +295,15 @@ if($userid)
 							<!-- end of col2 -->
 						</div>
 						<!-- end of content -->
+						<footer id="footer">
+							<div class="copyright">
+								&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
+							</div>
+						</footer>
 					</div>
 
 				</section>
-				<footer id="footer">
-					<div class="copyright">
-						&copy; Untitled Design: <a href="https://templated.co/">TEMPLATED</a>. Images: <a href="https://unsplash.com/">Unsplash</a>.
-					</div>
-				</footer>
+
 			</div>
 			</section>
 			<!-- end of wrap -->

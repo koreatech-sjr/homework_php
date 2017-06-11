@@ -109,7 +109,10 @@
 													$item_num = $row[num];
 													$item_file_copied_0 = $row[file_copied_0];
 
-														$str = "<div style='margin-top: 0px;' class='media all people'>"."<a  href='/free/view.php?table=$table&page=$page&num=".$item_num."'><img src='/free/data/".$item_file_copied_0."' alt='' title='This right here is a caption.' /></a>
+														$str = "<div style='margin-top: 0px;' class='media'>"
+														."<a href='/free/view.php?table=$table&page=$page&num="
+														.$item_num."'><img src='/free/data/".$item_file_copied_0."'
+														alt='' title='This right here is a caption.' /></a>
 														</div>";
 														echo $str;
 												}
