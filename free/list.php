@@ -4,26 +4,6 @@
 	$ripple = "free_ripple";
 ?>
 <?
-    // function getInfo() {
-    //   include "../lib/dbconn.php";
-		//
-    //   $sql = "select * from free";
-    //   $result = mysql_query($sql, $connect);
-		//
-    //   $count = 0;
-		//
-    //   while($row = mysql_fetch_array($result)) {
-    //     $obj[$count] = (object)array('num' => $row[num], 'id' => $row[id], 'name' => $row[name], 'nick' => $row[nick],
-    //     'subject' => $row[subject], 'content' => $row[content], 'regist_day' => $row[regist_day],
-    //     'hit' => $row[hit], 'is_html' => $row[is_html], 'file_name_0' => $row[file_name_0],
-    //     'file_name_1' => $row[file_name_1], 'file_name_2' => $row[file_name_2], 'file_name_3' => $row[file_name_3], 'file_name_4' => $row[file_name_4],
-    //     'file_copied_0' => $row[file_copied_0], 'file_copied_1' => $row[file_copied_1], 'file_copied_2' => $row[file_copied_2],
-    //     'file_copied_3' => $row[file_copied_3], 'file_copied_4' => $row[file_copied_4]);
-    //     $count++;
-    //   }
-		//
-    //   return $obj;
-    // }
 		  include "../lib/dbconn.php";
 
 		  $sql = "select * from free";
@@ -171,7 +151,6 @@
 															$str = "<div style='margin-top: 0px;' class='media all people'>"."<a href='view.php?table=$table&page=$page&num=".$item_num."'><img src='./data/".$item_file_copied_0."' alt='' title='This right here is a caption.' /></a>
 															</div>";
 															echo $str;
-															// echo $obj[0]->file_name;
 													}
 										?>
 									</div>
@@ -229,7 +208,5 @@
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-
-
 </body>
 </html>

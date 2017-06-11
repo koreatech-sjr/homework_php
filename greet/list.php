@@ -29,7 +29,7 @@
 	</head>
 	<?
 	include "../lib/dbconn.php";
-	$scale=2;			// 한 화면에 표시되는 글 수
+	$scale=10;			// 한 화면에 표시되는 글 수
 
     if ($mode=="search")
 	{
@@ -233,7 +233,8 @@
 										                    <option value='name'>이름</option>
 														</select></div>
 													<div id="list_search4" style="float: left; width: 60%;"><input type="text" name="search"></div>
-													<div id="list_search5" style="float: left; width: 10%;"><input type="image" src="../img/list_search_button.gif"></div>
+													<!-- <div id="list_search5" style="float: left; width: 10%;"><input type="image" src="../img/list_search_button.gif"></div> -->
+													<div id="list_search5" style="float: left; width: 10%;"><input type="submit" name=검색 value="검색" ></div>
 												</div>
 												</form>
 											</center>

@@ -2,29 +2,15 @@
 	session_start();
 ?>
 <?
-    function getInfo() {
-      include "./lib/dbconn.php";
+	include "./lib/dbconn.php";
 
-      $sql = "select * from free";
-      $result = mysql_query($sql, $connect);
-
-      $count = 0;
-
-      while($row = mysql_fetch_array($result)) {
-        $obj[$count] = (object)array('id' => $row[id], 'name' => $row[name], 'nick' => $row[nick],
-        'subject' => $row[subject], 'content' => $row[content], 'regist_day' => $row[regist_day],
-        'hit' => $row[hit], 'is_html' => $row[is_html], 'file_name_0' => $row[file_name_0],
-        'file_name_1' => $row[file_name_1], 'file_name_2' => $row[file_name_2], 'file_name_3' => $row[file_name_3], 'file_name_4' => $row[file_name_4],
-        'file_copied_0' => $row[file_copied_0], 'file_copied_1' => $row[file_copied_1], 'file_copied_2' => $row[file_copied_2],
-        'file_copied_3' => $row[file_copied_3], 'file_copied_4' => $row[file_copied_4]);
-        $count++;
-      }
-
-      mysql_close();
-
-      return $obj;
-    }
+	$sql = "select * from free order by num desc";
+	$result = mysql_query($sql, $connect);
+	$total_record = mysql_num_rows($result);
+	$scale = 8;
+	$start = 0;
 ?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -116,12 +102,16 @@
 						<!-- Photo Galleries -->
 								<div class="content">
 									<?
-										$obj = getInfo();
-												for($i=0; $i<8; $i++){
-														$str = "<div class='media all people'>"."<a href='view.php?table=<?=$table?>&page=<?=$page?>'><img src='./free/data/".$obj[$i]->file_copied_0."' alt='' title='This right here is a caption.' /></a>
+												for($i=$start; $i<$start+$scale && $i < $total_record; $i++){
+													mysql_data_seek($result, $i);
+													$row = mysql_fetch_array($result);
+
+													$item_num = $row[num];
+													$item_file_copied_0 = $row[file_copied_0];
+
+														$str = "<div style='margin-top: 0px;' class='media all people'>"."<a  href='/free/view.php?table=$table&page=$page&num=".$item_num."'><img src='/free/data/".$item_file_copied_0."' alt='' title='This right here is a caption.' /></a>
 														</div>";
 														echo $str;
-														echo $obj[0]->file_name;
 												}
 									?>
 								</div>

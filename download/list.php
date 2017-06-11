@@ -217,16 +217,17 @@ $number--;
 			?>
 													&nbsp;&nbsp;&nbsp;&nbsp;다음 ▶
 											</div>
-											<div id="button">
-												<a href="list.php?table=<?=$table?>&page=<?=$page?>"><img src="../img/list.png"></a>&nbsp;
+											<a href="list.php?table=<?=$table?>&page=<?=$page?>"><input type="button" name="목록" value="글목록"></a>
+											&nbsp;
+											<?
+if($userid)
+{
+?>
+												<a href="write_form.php?table=<?=$table?>"><input type="button" name="글쓰기" value="글쓰기"></a>
+
 												<?
-				if($userid)
-				{
-			?>
-													<a href="write_form.php?table=<?=$table?>"><img src="../img/write.png"></a>
-													<?
-				}
-			?>
+}
+?>
 											</div>
 										</div>
 										<!-- end of page_button -->
@@ -242,7 +243,7 @@ $number--;
 														<option value='name'>이름</option>
 								</select></div>
 												<div id="list_search4" style="float: left; width: 60%;"><input type="text" name="search"></div>
-												<div id="list_search5" style="float: left; width: 10%;"><input type="image" src="../img/list_search_button.gif"></div>
+												<div id="list_search5" style="float: left; width: 10%;"><input type="submit" name="검색" value="검색"></div></div>
 											</div>
 										</form>
 									</center>
